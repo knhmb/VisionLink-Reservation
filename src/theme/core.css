@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@300;400;500;600;700&display=swap");
+
+ion-toolbar {
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-primary-contrast);
+  text-align: center;
+  font-size: 18px;
+  padding-right: 16px;
+  padding-left: 16px;
+  font-family: Poppins;
+  font-weight: 600;
+  line-height: 25px;
+  letter-spacing: 0em;
+}
+
+ion-toolbar.footer-toolbar {
+  --background: var(--ion-color-primary-contrast);
+}
+
+ion-content {
+  z-index: 100;
+}
+
+ion-input {
+  border-radius: 10px;
+  border: 1px solid var(--ion-color-primary-shade);
+  background: var(--ion-color-primary-contrast);
+  --placeholder-color: var(--ion-text-color-secondary) !important;
+  --placeholder-font-style: var(--ion-font-family);
+}
+
+ion-item {
+  margin-bottom: 1rem;
+}
+
+ion-card {
+  border-radius: 10px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+ion-card-content,
+ion-card-header {
+  padding: 0.7rem !important;
+}

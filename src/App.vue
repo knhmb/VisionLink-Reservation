@@ -4,6 +4,10 @@
   </ion-app>
 </template>
 
-<script setup lang="ts">
-import { IonApp, IonRouterOutlet } from '@ionic/vue';
+<script>
+import { IonApp, IonRouterOutlet } from "@ionic/vue";
+
+export default {
+  components: { IonApp, IonRouterOutlet },
+};
 </script>
