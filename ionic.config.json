@@ -1,0 +1,7 @@
+{
+  "name": "vision-link-reservation",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
