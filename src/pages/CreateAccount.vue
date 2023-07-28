@@ -8,6 +8,13 @@
   >
     <h3>Enter your details to create account</h3>
     <create-account-form></create-account-form>
+    <p>
+      By creating an account you agree to our <br />
+      <span @click="$router.push('/terms-conditions')"
+        >Terms and Conditions</span
+      >
+      and <span @click="$router.push('/privacy-policy')">Privacy Policy</span>
+    </p>
   </base-layout>
 </template>
 
@@ -31,5 +38,18 @@ h3 {
   font-weight: 600;
   line-height: 140%;
   margin-bottom: 1.5rem;
+}
+
+p {
+  font-family: var(--ion-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+p span {
+  color: #165dff;
 }
 </style>

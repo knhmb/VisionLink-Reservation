@@ -144,27 +144,11 @@ const routes = [
     path: "/privacy-policy",
     name: "PrivacyPolicy",
     component: () => import("../pages/PrivacyPolicy.vue"),
-    beforeEnter(to, from, next) {
-      const isAuthenticated = localStorage.getItem("accessToken");
-      if (isAuthenticated) {
-        next();
-        return;
-      }
-      next("/");
-    },
   },
   {
     path: "/terms-conditions",
     name: "TermsConditions",
     component: () => import("../pages/TermsConditions.vue"),
-    beforeEnter(to, from, next) {
-      const isAuthenticated = localStorage.getItem("accessToken");
-      if (isAuthenticated) {
-        next();
-        return;
-      }
-      next("/");
-    },
   },
   {
     path: "/about-us",

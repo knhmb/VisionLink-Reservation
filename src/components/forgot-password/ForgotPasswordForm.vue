@@ -10,7 +10,6 @@
               required
             ></base-input>
           </div>
-          <ion-icon type="email" slot="start" :icon="mailOutline"></ion-icon>
           <p class="otp" @click="sendOtp">Send OTP</p>
         </div>
         <div
@@ -26,7 +25,6 @@
           <div :class="{ error: v$.otp.$errors.length }">
             <base-input v-model="otp" placeholder="OTP"></base-input>
           </div>
-          <ion-icon type="text" slot="start" :icon="createOutline"></ion-icon>
         </div>
         <div
           class="input-errors"
@@ -45,7 +43,6 @@
               placeholder="New Password"
             ></base-input>
           </div>
-          <ion-icon type="password" slot="start" :icon="keyOutline"></ion-icon>
         </div>
         <div
           class="input-errors"
@@ -64,7 +61,6 @@
               placeholder="Confirm Password"
             ></base-input>
           </div>
-          <ion-icon type="password" slot="start" :icon="keyOutline"></ion-icon>
         </div>
         <div
           class="input-errors"
@@ -81,7 +77,6 @@
   
   <script>
 import { IonList, IonItem, IonIcon, toastController } from "@ionic/vue";
-import { keyOutline, createOutline, mailOutline } from "ionicons/icons";
 import { useVuelidate } from "@vuelidate/core";
 import { required, email, minLength, sameAs } from "@vuelidate/validators";
 
@@ -96,9 +91,6 @@ export default {
   },
   data() {
     return {
-      keyOutline,
-      createOutline,
-      mailOutline,
       email: "",
       otp: "",
       password: "",
@@ -135,25 +127,25 @@ export default {
         });
     },
     async submit() {
-      const result = await this.v$.$validate();
-      if (!result) {
-        return;
-      }
-      // perform async actions
-      const data = {
-        email: this.email,
-        password: this.password,
-        password2: this.confirmPassword,
-      };
-      this.$store
-        .dispatch("auth/resetPassword", data)
-        .then(() => {
-          this.presentToast("Password Changed!", "success");
-          this.$router.replace("/login");
-        })
-        .catch((err) => {
-          this.presentToast(err.response.data.message, "warning");
-        });
+      // const result = await this.v$.$validate();
+      // if (!result) {
+      //   return;
+      // }
+      // // perform async actions
+      // const data = {
+      //   email: this.email,
+      //   password: this.password,
+      //   password2: this.confirmPassword,
+      // };
+      // this.$store
+      //   .dispatch("auth/resetPassword", data)
+      //   .then(() => {
+      //     this.presentToast("Password Changed!", "success");
+      //     this.$router.replace("/login");
+      //   })
+      //   .catch((err) => {
+      //     this.presentToast(err.response.data.message, "warning");
+      //   });
     },
     async presentToast(message, color) {
       const toast = await toastController.create({
@@ -197,7 +189,7 @@ p.otp {
   line-height: 140%;
   position: absolute;
   top: 50%;
-  right: 2rem;
+  right: 1.2rem;
   transform: translateY(-50%);
   z-index: 99;
   margin: 0;

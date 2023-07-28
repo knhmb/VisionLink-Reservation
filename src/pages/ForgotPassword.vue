@@ -5,7 +5,7 @@
     page-back-link="/login"
     :hide-footer="true"
   >
-    <p>Please enter your email address We will send your the OTP via email</p>
+    <p>Please enter your email address We will send you the OTP via email</p>
     <forgot-password-form></forgot-password-form>
   </base-layout>
 </template>
@@ -22,7 +22,7 @@ export default {
 
 <style scoped>
 p {
-  color: var(--ion-text-colot-primary);
+  color: var(--ion-text-color-primary-contrast);
   text-align: center;
   font-family: var(--ion-font-family);
   font-size: 16px;
