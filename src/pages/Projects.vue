@@ -2,10 +2,12 @@
   <base-layout page-title="Projects" :hideBackButton="true">
     <div class="project-image">
       <ion-img
-        src="../../public//assets/Leonardo_Diffusion_hand_drawn_style_virtual_interior_design_be_0 1.png"
+        src="assets/Leonardo_Diffusion_hand_drawn_style_virtual_interior_design_be_0 1.png"
       ></ion-img>
-      <div class="blur">
-        <p>Welcome to VisionLink</p>
+      <div class="blur-content">
+        <div class="blur">
+          <p>Welcome to VisionLink</p>
+        </div>
       </div>
     </div>
     <Main />
@@ -85,17 +87,30 @@ export default {
 <style scoped>
 .project-image {
   position: relative;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 
 ion-image {
   border-radius: 0;
 }
 
+.blur-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .project-image ion-img::part(image) {
   border-radius: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .project-image .blur {

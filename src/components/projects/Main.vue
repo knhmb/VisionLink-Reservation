@@ -3,7 +3,7 @@
     <ion-grid>
       <ion-row>
         <ion-col size="6" v-for="item in 6" :key="item">
-          <ion-card>
+          <ion-card router-link="/projects/1">
             <ion-img
               alt="Silhouette of mountains"
               src="../../../public/assets/img.png"

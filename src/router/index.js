@@ -37,17 +37,17 @@ const routes = [
     // },
   },
   {
-    path: "/news/:id",
-    name: "NewsDetail",
-    component: () => import("../pages/NewsDetail.vue"),
-    beforeEnter(to, from, next) {
-      const isAuthenticated = localStorage.getItem("accessToken");
-      if (isAuthenticated) {
-        next();
-        return;
-      }
-      next("/");
-    },
+    path: "/projects/:id",
+    name: "ProjectsDetail",
+    component: () => import("../pages/ProjectsDetail.vue"),
+    // beforeEnter(to, from, next) {
+    //   const isAuthenticated = localStorage.getItem("accessToken");
+    //   if (isAuthenticated) {
+    //     next();
+    //     return;
+    //   }
+    //   next("/");
+    // },
   },
   {
     path: "/course",

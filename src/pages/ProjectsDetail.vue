@@ -1,24 +1,20 @@
 <template>
-  <base-layout
-    :page-title="newsDetail && newsDetail.title"
-    page-back-link="/news"
-  >
-    <ion-img :src="blobImage"></ion-img>
-    <div class="news-content">
-      <p>{{ newsDetail ? newsDetail.title : "No Data" }}</p>
-      <p>
-        {{ newsDetail ? newsDetail.content : "No Data" }}
-      </p>
+  <base-layout page-title="Projects Detail" page-back-link="/projects">
+    <ion-img src="/assets/Banner.png"></ion-img>
+    <div class="projects-content">
+      <Main />
     </div>
   </base-layout>
 </template>
 
 <script>
 import { IonImg } from "@ionic/vue";
+import Main from "../components/projects-detail/Main.vue";
 
 export default {
   components: {
     IonImg,
+    Main,
   },
   computed: {
     newsDetail() {
@@ -42,12 +38,12 @@ export default {
 </script>
 
 <style scoped>
-.news-content {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+.projects-content {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-.news-content p {
+.projects-content p {
   color: var(--ion-color-primary);
   font-family: var(--ion-font-family);
   font-size: 18px;
@@ -56,14 +52,14 @@ export default {
   line-height: 140%;
 }
 
-.news-content p:nth-of-type(2) {
+.projects-content p:nth-of-type(2) {
   color: #4e5969;
   font-size: 14px;
   font-weight: 400;
 }
 
 ion-img::part(image) {
-  height: 15rem;
+  height: 13rem;
   width: 100%;
   object-fit: cover;
 }
