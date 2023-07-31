@@ -24,17 +24,17 @@ const routes = [
     component: () => import("../pages/ForgotPassword.vue"),
   },
   {
-    path: "/news",
-    name: "News",
-    component: () => import("../pages/News.vue"),
-    beforeEnter(to, from, next) {
-      const isAuthenticated = localStorage.getItem("accessToken");
-      if (isAuthenticated) {
-        next();
-        return;
-      }
-      next("/");
-    },
+    path: "/projects",
+    name: "Projects",
+    component: () => import("../pages/Projects.vue"),
+    // beforeEnter(to, from, next) {
+    //   const isAuthenticated = localStorage.getItem("accessToken");
+    //   if (isAuthenticated) {
+    //     next();
+    //     return;
+    //   }
+    //   next("/");
+    // },
   },
   {
     path: "/news/:id",

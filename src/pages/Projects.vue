@@ -1,15 +1,20 @@
 <template>
-  <base-layout page-title="News" :hideBackButton="true" :add-padding="true">
-    <template v-if="news.length > 0">
+  <base-layout page-title="Projects" :hideBackButton="true">
+    <div class="project-image">
+      <ion-img
+        src="../../public//assets/Leonardo_Diffusion_hand_drawn_style_virtual_interior_design_be_0 1.png"
+      ></ion-img>
+      <div class="blur">
+        <p>Welcome to VisionLink</p>
+      </div>
+    </div>
+    <Main />
+    <!-- <template v-if="news.length > 0">
       <ion-card
         v-for="item in news"
         :key="item.id"
         :router-link="`/news/${item.slug}`"
       >
-        <!-- <ion-card-header>
-        <ion-card-title>Card Title</ion-card-title>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-      </ion-card-header> -->
 
         <ion-card-content>
           <ion-img
@@ -23,7 +28,7 @@
           </div>
         </ion-card-content>
       </ion-card>
-    </template>
+    </template> -->
   </base-layout>
 </template>
 
@@ -38,6 +43,7 @@ import {
   IonIcon,
 } from "@ionic/vue";
 import { chevronForwardOutline } from "ionicons/icons";
+import Main from "../components/projects/Main.vue";
 
 export default {
   components: {
@@ -48,6 +54,7 @@ export default {
     IonCardSubtitle,
     IonImg,
     IonIcon,
+    Main,
   },
   data() {
     return {
@@ -55,9 +62,9 @@ export default {
     };
   },
   computed: {
-    news() {
-      return this.$store.getters["dashboard/news"];
-    },
+    // news() {
+    //   return this.$store.getters["dashboard/news"];
+    // },
   },
   // methods: {
   //   async getBlobImage(img) {
@@ -70,12 +77,50 @@ export default {
   //   },
   // },
   created() {
-    this.$store.dispatch("dashboard/getNews");
+    // this.$store.dispatch("dashboard/getNews");
   },
 };
 </script>
 
 <style scoped>
+.project-image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ion-image {
+  border-radius: 0;
+}
+
+.project-image ion-img::part(image) {
+  border-radius: 0;
+}
+
+.project-image .blur {
+  background: #ffe7c280;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  width: 18rem;
+  border-radius: 10px;
+  backdrop-filter: blur(1px);
+}
+
+.project-image .blur p {
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: var(--ion-color-primary);
+  margin: 0;
+}
+
 .item {
   margin-bottom: 1rem;
 }
