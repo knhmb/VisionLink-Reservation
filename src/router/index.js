@@ -50,30 +50,43 @@ const routes = [
     // },
   },
   {
-    path: "/course",
-    name: "Course",
-    component: () => import("../pages/Course.vue"),
-    beforeEnter(to, from, next) {
-      const isAuthenticated = localStorage.getItem("accessToken");
-      if (isAuthenticated) {
-        next();
-        return;
-      }
-      next("/");
-    },
+    path: "/rennovation-schedule",
+    name: "RennovationSchedule",
+    component: () => import("../pages/RennovationSchedule.vue"),
+    // beforeEnter(to, from, next) {
+    //   const isAuthenticated = localStorage.getItem("accessToken");
+    //   if (isAuthenticated) {
+    //     next();
+    //     return;
+    //   }
+    //   next("/");
+    // },
   },
   {
-    path: "/course/:id",
-    name: "CourseDetail",
-    component: () => import("../pages/CourseDetail.vue"),
-    beforeEnter(to, from, next) {
-      const isAuthenticated = localStorage.getItem("accessToken");
-      if (isAuthenticated) {
-        next();
-        return;
-      }
-      next("/");
-    },
+    path: "/rennovation-schedule-in-progress",
+    name: "RennovationInProgress",
+    component: () => import("../pages/RennovationScheduleInProgress.vue"),
+    // beforeEnter(to, from, next) {
+    //   const isAuthenticated = localStorage.getItem("accessToken");
+    //   if (isAuthenticated) {
+    //     next();
+    //     return;
+    //   }
+    //   next("/");
+    // },
+  },
+  {
+    path: "/rennovation-schedule-pending",
+    name: "RennovationPending",
+    component: () => import("../pages/RennovationSchedulePending.vue"),
+    // beforeEnter(to, from, next) {
+    //   const isAuthenticated = localStorage.getItem("accessToken");
+    //   if (isAuthenticated) {
+    //     next();
+    //     return;
+    //   }
+    //   next("/");
+    // },
   },
   {
     path: "/reservation",
