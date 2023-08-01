@@ -54,7 +54,7 @@ p {
   text-align: left;
   color: var(--ion-text-color-primary-contrast);
   margin: 0;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
 ion-img::part(image) {

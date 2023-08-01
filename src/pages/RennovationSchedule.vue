@@ -1,6 +1,6 @@
 <template>
   <base-layout
-    title="Rennovation Schedule"
+    page-title="Rennovation Schedule"
     :hide-back-button="true"
     :add-padding="true"
   >

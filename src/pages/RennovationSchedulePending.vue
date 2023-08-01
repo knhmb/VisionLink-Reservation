@@ -2,6 +2,7 @@
   <base-layout
     page-title="Rennovation Schedule"
     page-back-link="/rennovation-schedule"
+    :hide-footer="true"
   >
     <rennovation-schedule>
       <ul>
