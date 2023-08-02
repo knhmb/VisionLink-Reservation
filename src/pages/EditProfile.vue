@@ -3,7 +3,7 @@
     :add-padding="true"
     page-title="Edit Profile"
     :hide-footer="true"
-    page-back-link="/account"
+    page-back-link="/profile"
   >
     <h4>Edit Your Profile</h4>
     <edit-profile-form></edit-profile-form>
@@ -22,7 +22,7 @@ export default {
 
 <style scoped>
 h4 {
-  color: var(--ion-text-color-primary);
+  color: var(--ion-text-color-primary-contrast);
   text-align: center;
   font-family: var(--ion-font-family);
   font-size: 16px;

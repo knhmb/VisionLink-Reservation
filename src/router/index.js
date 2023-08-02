@@ -102,70 +102,45 @@ const routes = [
     // },
   },
   {
-    path: "/reservation",
-    name: "Reservation",
-    component: () => import("../pages/Reservation.vue"),
-    beforeEnter(to, from, next) {
-      const isAuthenticated = localStorage.getItem("accessToken");
-      if (isAuthenticated) {
-        next();
-        return;
-      }
-      next("/");
-    },
-  },
-  {
-    path: "/account",
+    path: "/profile",
     name: "Account",
     component: () => import("../pages/Account.vue"),
-    beforeEnter(to, from, next) {
-      const isAuthenticated = localStorage.getItem("accessToken");
-      if (isAuthenticated) {
-        next();
-        return;
-      }
-      next("/");
-    },
+    // beforeEnter(to, from, next) {
+    //   const isAuthenticated = localStorage.getItem("accessToken");
+    //   if (isAuthenticated) {
+    //     next();
+    //     return;
+    //   }
+    //   next("/");
+    // },
   },
   {
     path: "/edit-profile",
     name: "EditProfile",
     component: () => import("../pages/EditProfile.vue"),
-    beforeEnter(to, from, next) {
-      const isAuthenticated = localStorage.getItem("accessToken");
-      if (isAuthenticated) {
-        next();
-        return;
-      }
-      next("/");
-    },
+    // beforeEnter(to, from, next) {
+    //   const isAuthenticated = localStorage.getItem("accessToken");
+    //   if (isAuthenticated) {
+    //     next();
+    //     return;
+    //   }
+    //   next("/");
+    // },
   },
   {
     path: "/change-password",
     name: "ChangePassword",
     component: () => import("../pages/ChangePassword.vue"),
-    beforeEnter(to, from, next) {
-      const isAuthenticated = localStorage.getItem("accessToken");
-      if (isAuthenticated) {
-        next();
-        return;
-      }
-      next("/");
-    },
+    // beforeEnter(to, from, next) {
+    //   const isAuthenticated = localStorage.getItem("accessToken");
+    //   if (isAuthenticated) {
+    //     next();
+    //     return;
+    //   }
+    //   next("/");
+    // },
   },
-  {
-    path: "/reservation-history",
-    name: "ReservationHistory",
-    component: () => import("../pages/ReservationHistory.vue"),
-    beforeEnter(to, from, next) {
-      const isAuthenticated = localStorage.getItem("accessToken");
-      if (isAuthenticated) {
-        next();
-        return;
-      }
-      next("/");
-    },
-  },
+
   {
     path: "/privacy-policy",
     name: "PrivacyPolicy",
@@ -180,27 +155,27 @@ const routes = [
     path: "/about-us",
     name: "AboutUs",
     component: () => import("../pages/AboutUs.vue"),
-    beforeEnter(to, from, next) {
-      const isAuthenticated = localStorage.getItem("accessToken");
-      if (isAuthenticated) {
-        next();
-        return;
-      }
-      next("/");
-    },
+    // beforeEnter(to, from, next) {
+    //   const isAuthenticated = localStorage.getItem("accessToken");
+    //   if (isAuthenticated) {
+    //     next();
+    //     return;
+    //   }
+    //   next("/");
+    // },
   },
   {
     path: "/contact-us",
     name: "ContactUs",
     component: () => import("../pages/ContactUs.vue"),
-    beforeEnter(to, from, next) {
-      const isAuthenticated = localStorage.getItem("accessToken");
-      if (isAuthenticated) {
-        next();
-        return;
-      }
-      next("/");
-    },
+    // beforeEnter(to, from, next) {
+    //   const isAuthenticated = localStorage.getItem("accessToken");
+    //   if (isAuthenticated) {
+    //     next();
+    //     return;
+    //   }
+    //   next("/");
+    // },
   },
   {
     path: "/tabs/",

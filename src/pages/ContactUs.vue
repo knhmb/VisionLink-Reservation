@@ -1,13 +1,11 @@
 <template>
   <base-layout
-    :page-title="singleCms.title"
+    page-title="Contact Us"
     :add-padding="true"
     :hide-footer="true"
-    page-back-link="/account"
+    page-back-link="/profile"
   >
-    <p>
-      {{ singleCms.content }}
-    </p>
+    <p>Address: Tel: +852 Email:</p>
   </base-layout>
 </template>
 
@@ -18,20 +16,20 @@ export default {
       return this.$store.getters["dashboard/cms"];
     },
     singleCms() {
-      return this.cms.find((item) => item.slug === "page-contact-us");
+      return this.cms.find((item) => item.slug === "page-privacy-policy");
     },
   },
 };
 </script>
-      
-      <style scoped>
+
+<style scoped>
 p {
-  color: #4e5969;
-  font-family: var(--ion-font-family);
+  font-family: Lato;
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
-  line-height: 140%;
+  line-height: 20px;
+  letter-spacing: 0em;
+  color: var(--ion-text-color-primary);
   margin: 0;
   padding: 0 1rem;
 }

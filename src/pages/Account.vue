@@ -4,7 +4,6 @@
     :hide-back-button="true"
     :add-padding="true"
   >
-    <small>Personal</small>
     <ion-card>
       <div class="item" @click="$router.push('/edit-profile')">
         <p>Edit Profile</p>
@@ -14,30 +13,51 @@
         <p>Change Password</p>
         <ion-icon :icon="chevronForwardOutline"></ion-icon>
       </div>
-      <div class="item" @click="$router.push('/reservation-history')">
-        <p>Reservation History</p>
+      <div class="item" @click="$router.push('/privacy-policy')">
+        <p>Privacy Policy</p>
         <ion-icon :icon="chevronForwardOutline"></ion-icon>
       </div>
+      <div class="item" @click="$router.push('/terms-conditions')">
+        <p>Terms & Conditions</p>
+        <ion-icon :icon="chevronForwardOutline"></ion-icon>
+      </div>
+      <div class="item" @click="$router.push('/about-us')">
+        <p>About Us</p>
+        <ion-icon :icon="chevronForwardOutline"></ion-icon>
+      </div>
+      <div class="item" @click="$router.push('/contact-us')">
+        <p>Contact Us</p>
+        <ion-icon :icon="chevronForwardOutline"></ion-icon>
+      </div>
+      <div class="item" @click="logout">
+        <p>Logout</p>
+      </div>
     </ion-card>
-    <Setting />
+    <base-button id="open-delete-dialog">Delete Account</base-button>
+    <delete-account-dialog></delete-account-dialog>
   </base-layout>
 </template>
 
 <script>
 import { IonIcon, IonCard } from "@ionic/vue";
 import { chevronForwardOutline } from "ionicons/icons";
-import Setting from "../components/account/Setting.vue";
+import DeleteAccountDialog from "../components/account/DeleteAccountDialog.vue";
 
 export default {
   components: {
     IonIcon,
-    Setting,
     IonCard,
+    DeleteAccountDialog,
   },
   data() {
     return {
       chevronForwardOutline,
     };
+  },
+  methods: {
+    logout() {
+      this.$router.replace("/login");
+    },
   },
   created() {
     this.$store.dispatch("dashboard/getCms");
@@ -49,17 +69,6 @@ export default {
 ion-card {
   margin-top: 0;
   --background: var(--ion-color-primary-contrast);
-}
-
-small {
-  color: #86909c;
-  font-family: var(--ion-font-family);
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-bottom: 0.5rem;
-  display: block;
 }
 
 ion-item {
@@ -99,5 +108,10 @@ ion-item {
 ion-icon {
   font-size: 1.5rem;
   color: #c9cdd4;
+}
+
+ion-button {
+  --background: #f53f3f;
+  --background-activated: #eb7b7bc7;
 }
 </style>

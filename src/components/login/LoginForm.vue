@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     async submit() {
-      this.$router.replace("/news");
+      this.$router.replace("/projects");
       // const result = await this.v$.$validate();
       // if (!result) {
       //   return;

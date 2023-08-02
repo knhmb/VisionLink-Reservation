@@ -4,19 +4,16 @@
       <ion-item lines="none">
         <div class="input-content">
           <base-input placeholder="Current Password" required></base-input>
-          <ion-icon type="password" slot="start" :icon="keyOutline"></ion-icon>
         </div>
       </ion-item>
       <ion-item lines="none">
         <div class="input-content">
           <base-input placeholder="New Password" required></base-input>
-          <ion-icon type="password" slot="start" :icon="keyOutline"></ion-icon>
         </div>
       </ion-item>
       <ion-item lines="none">
         <div class="input-content">
           <base-input placeholder="Confirm New Password" required></base-input>
-          <ion-icon type="password" slot="start" :icon="keyOutline"></ion-icon>
         </div>
       </ion-item>
     </ion-list>
@@ -26,7 +23,6 @@
   
   <script>
 import { IonList, IonItem, IonIcon } from "@ionic/vue";
-import { keyOutline } from "ionicons/icons";
 
 export default {
   components: {
@@ -35,9 +31,7 @@ export default {
     IonIcon,
   },
   data() {
-    return {
-      keyOutline,
-    };
+    return {};
   },
 };
 </script>

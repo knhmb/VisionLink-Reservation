@@ -22,7 +22,7 @@ export default {
   
   <style scoped>
 h4 {
-  color: var(--ion-text-color-primary);
+  color: var(--ion-text-color-primary-contrast);
   text-align: center;
   font-family: var(--ion-font-family);
   font-size: 16px;
