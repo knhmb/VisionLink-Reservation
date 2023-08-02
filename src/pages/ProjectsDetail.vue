@@ -1,5 +1,9 @@
 <template>
-  <base-layout page-title="Projects Detail" page-back-link="/projects">
+  <base-layout
+    page-title="Projects Detail"
+    page-back-link="/projects"
+    :hide-footer="true"
+  >
     <ion-img src="/assets/Banner.png"></ion-img>
     <div class="projects-content">
       <Main />

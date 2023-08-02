@@ -2,21 +2,17 @@
   <ion-tabs>
     <ion-router-outlet></ion-router-outlet>
     <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="news" href="/news">
+      <ion-tab-button tab="projects" href="/projects">
         <ion-icon :icon="volumeMediumOutline"></ion-icon>
-        News
+        Projects
       </ion-tab-button>
-      <ion-tab-button tab="course" href="/course">
+      <ion-tab-button tab="rennovation-schedule" href="/rennovation-schedule">
         <ion-icon :icon="easelOutline"></ion-icon>
-        Course
+        Rennovation Schedule
       </ion-tab-button>
-      <ion-tab-button tab="reservation" href="/reservation">
+      <ion-tab-button tab="profile" href="/profile">
         <ion-icon :icon="calendarOutline"></ion-icon>
-        Reservation
-      </ion-tab-button>
-      <ion-tab-button tab="account" href="/account">
-        <ion-icon :icon="personOutline"></ion-icon>
-        Account
+        Profile
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
@@ -69,9 +65,11 @@ ion-tab-button {
   font-weight: 400;
   line-height: 140%;
   background: var(--ion-color-primary-contrast);
+  white-space: nowrap;
 }
 
 ion-tab-button.tab-selected {
-  color: var(--ion-color-primary);
+  /* color: var(--ion-color-primary); */
+  color: #6e4d27;
 }
 </style>

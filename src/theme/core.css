@@ -5,8 +5,8 @@ ion-toolbar {
   --color: var(--ion-color-primary-contrast);
   text-align: center;
   font-size: 18px;
-  padding-right: 16px;
-  padding-left: 16px;
+  padding-right: 7px;
+  padding-left: 7px;
   font-family: Poppins;
   font-weight: 600;
   line-height: 25px;
