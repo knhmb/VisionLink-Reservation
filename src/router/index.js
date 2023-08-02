@@ -89,6 +89,19 @@ const routes = [
     // },
   },
   {
+    path: "/rennovation-schedule-completed",
+    name: "RennovationCompleted",
+    component: () => import("../pages/RennovationScheduleCompleted.vue"),
+    // beforeEnter(to, from, next) {
+    //   const isAuthenticated = localStorage.getItem("accessToken");
+    //   if (isAuthenticated) {
+    //     next();
+    //     return;
+    //   }
+    //   next("/");
+    // },
+  },
+  {
     path: "/reservation",
     name: "Reservation",
     component: () => import("../pages/Reservation.vue"),

@@ -22,7 +22,14 @@
       >
         Pending
       </p>
-      <p>Completed</p>
+      <p
+        @click="$router.push('/rennovation-schedule-completed')"
+        :class="{
+          'is-selected': $route.path === '/rennovation-schedule-completed',
+        }"
+      >
+        Completed
+      </p>
     </div>
     <slot />
   </div>

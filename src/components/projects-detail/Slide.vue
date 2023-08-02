@@ -2,7 +2,7 @@
   <swiper :slides-per-view="3.5">
     <swiper-slide v-for="item in 6" :key="item">
       <div class="box">
-        <ion-img src="/assets/image.png"></ion-img>
+        <slot />
       </div>
     </swiper-slide>
   </swiper>
