@@ -3,15 +3,15 @@
     <ion-router-outlet></ion-router-outlet>
     <ion-tab-bar slot="bottom">
       <ion-tab-button tab="projects" href="/projects">
-        <ion-icon :icon="volumeMediumOutline"></ion-icon>
+        <ion-icon :icon="homeOutline"></ion-icon>
         Projects
       </ion-tab-button>
       <ion-tab-button tab="rennovation-schedule" href="/rennovation-schedule">
-        <ion-icon :icon="easelOutline"></ion-icon>
+        <ion-icon :icon="calendarOutline"></ion-icon>
         Rennovation Schedule
       </ion-tab-button>
       <ion-tab-button tab="profile" href="/profile">
-        <ion-icon :icon="calendarOutline"></ion-icon>
+        <ion-icon :icon="personOutline"></ion-icon>
         Profile
       </ion-tab-button>
     </ion-tab-bar>
@@ -26,12 +26,7 @@ import {
   IonIcon,
   IonRouterOutlet,
 } from "@ionic/vue";
-import {
-  volumeMediumOutline,
-  easelOutline,
-  calendarOutline,
-  personOutline,
-} from "ionicons/icons";
+import { homeOutline, calendarOutline, personOutline } from "ionicons/icons";
 
 export default {
   components: {
@@ -43,8 +38,7 @@ export default {
   },
   data() {
     return {
-      volumeMediumOutline,
-      easelOutline,
+      homeOutline,
       calendarOutline,
       personOutline,
     };
