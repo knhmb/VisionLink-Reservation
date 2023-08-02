@@ -34,6 +34,10 @@ export default {
 </script>
     
 <style scoped>
+.items {
+  margin-bottom: 0.5rem;
+}
+
 .top {
   display: flex;
   align-items: center;
