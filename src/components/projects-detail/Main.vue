@@ -15,10 +15,12 @@
 
 <script>
 import Slide from "./Slide.vue";
+import { IonImg } from "@ionic/vue";
 
 export default {
   components: {
     Slide,
+    IonImg,
   },
 };
 </script>

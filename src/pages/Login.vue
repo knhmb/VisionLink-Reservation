@@ -1,6 +1,6 @@
 <template>
   <base-layout :hide-header="true" :hide-footer="true" :add-padding="true">
-    <ion-img src="../../public/assets/VISONLINK LOGO-01 1.png"></ion-img>
+    <ion-img src="/assets/VISONLINK LOGO-01 1.png"></ion-img>
     <p>Login to your account</p>
     <login-form></login-form>
   </base-layout>

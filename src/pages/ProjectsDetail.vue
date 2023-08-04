@@ -1,7 +1,7 @@
 <template>
   <base-layout
     page-title="Projects Detail"
-    page-back-link="/projects"
+    page-back-link="/login"
     :hide-footer="true"
   >
     <ion-img src="/assets/Banner.png"></ion-img>

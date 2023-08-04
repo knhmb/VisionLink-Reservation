@@ -5,10 +5,7 @@
     :add-padding="true"
   >
     <ion-card router-link="/rennovation-schedule-in-progress">
-      <ion-img
-        alt="Silhouette of mountains"
-        src="../../../public/assets/image-2.png"
-      />
+      <ion-img alt="Silhouette of mountains" src="/assets/image-2.png" />
       <ion-card-content>
         (Title) 精美裝修設計項目 – 香港某地區綜合裝修方案,
         為您的生活創造獨特的美感...

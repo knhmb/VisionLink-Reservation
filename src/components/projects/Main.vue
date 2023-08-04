@@ -4,10 +4,7 @@
       <ion-row>
         <ion-col size="6" v-for="item in 6" :key="item">
           <ion-card router-link="/projects/1">
-            <ion-img
-              alt="Silhouette of mountains"
-              src="../../../public/assets/img.png"
-            />
+            <ion-img alt="Silhouette of mountains" src="/assets/img.png" />
             <ion-card-content>
               (Title) 精美裝修設計項目 – 香港某地區綜合裝修方案,
               為您的生活創造獨特的美感...
