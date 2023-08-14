@@ -10,7 +10,6 @@
               required
             ></base-input>
           </div>
-          <ion-icon type="text" slot="start" :icon="personOutline"></ion-icon>
         </div>
         <div
           class="input-errors"
@@ -25,12 +24,29 @@
           <div :class="{ error: v$.email.$errors.length }">
             <base-input v-model="email" placeholder="Email"></base-input>
           </div>
-          <ion-icon type="email" slot="start" :icon="mailOutline"></ion-icon>
           <p class="otp" @click="sendOtp">Send OTP</p>
         </div>
         <div
           class="input-errors"
           v-for="error of v$.email.$errors"
+          :key="error.$uid"
+        >
+          <div class="error-msg">{{ error.$message }}</div>
+        </div>
+      </ion-item>
+      <ion-item lines="none">
+        <div class="input-content">
+          <div :class="{ error: v$.otp.$errors.length }">
+            <base-input
+              v-model="otp"
+              placeholder="OTP"
+              type="password"
+            ></base-input>
+          </div>
+        </div>
+        <div
+          class="input-errors"
+          v-for="error of v$.otp.$errors"
           :key="error.$uid"
         >
           <div class="error-msg">{{ error.$message }}</div>
@@ -45,7 +61,6 @@
               type="password"
             ></base-input>
           </div>
-          <ion-icon slot="start" :icon="keyOutline"></ion-icon>
         </div>
         <div
           class="input-errors"
@@ -64,7 +79,6 @@
               type="password"
             ></base-input>
           </div>
-          <ion-icon slot="start" :icon="keyOutline"></ion-icon>
         </div>
         <div
           class="input-errors"
@@ -80,7 +94,7 @@
 </template>
 
 <script>
-import { IonList, IonItem, IonIcon } from "@ionic/vue";
+import { IonList, IonItem, IonIcon, toastController } from "@ionic/vue";
 import { useVuelidate } from "@vuelidate/core";
 import { required, email, minLength, sameAs } from "@vuelidate/validators";
 
@@ -97,6 +111,7 @@ export default {
     return {
       username: "",
       email: "",
+      otp: "",
       password: {
         password: "",
         confirm: "",
@@ -117,6 +132,7 @@ export default {
         },
       },
       email: { required, email },
+      otp: { required },
     };
   },
   methods: {
@@ -130,12 +146,46 @@ export default {
         username: this.username,
         password: this.password.password,
         password2: this.password.confirm,
-        phone: this.phone,
         email: this.email,
+        otp: this.otp,
       };
       console.log(data);
-      // this.$store.commit("auth/SET_SIGNUP_DATA", data);
-      // this.$router.push("/create-account-2");
+      try {
+        await this.$store.dispatch("auth/signUp", data);
+        this.$router.replace("/login");
+      } catch (err) {
+        this.presentToast(err, "warning");
+      }
+      // this.$store
+      //   .dispatch("auth/signup", data)
+      //   .then(() => {
+      //     this.$router.replace("/login");
+      //   })
+      //   .catch((err) => {
+      //     this.presentToast(err, "warning");
+      //   });
+    },
+    async sendOtp() {
+      const result = await this.v$.email.$validate();
+      if (!result) {
+        return;
+      }
+      try {
+        await this.$store.dispatch("auth/newAccountOTP", { email: this.email });
+        this.presentToast("OTP has been sent to the provided email", "success");
+      } catch (err) {
+        this.presentToast(err, "warning");
+      }
+    },
+    async presentToast(message, color) {
+      const toast = await toastController.create({
+        message: message,
+        duration: 1500,
+        position: "top",
+        color: color,
+      });
+
+      await toast.present();
     },
   },
 };

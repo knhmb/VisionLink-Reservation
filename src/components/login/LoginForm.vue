@@ -84,15 +84,22 @@ export default {
   methods: {
     async submit() {
       this.$router.replace("/projects");
-      // const result = await this.v$.$validate();
-      // if (!result) {
-      //   return;
-      // }
-      // // perform async actions
-      // const data = {
-      //   username: this.email,
-      //   password: this.password,
-      // };
+      const result = await this.v$.$validate();
+      if (!result) {
+        return;
+      }
+      // perform async actions
+      const data = {
+        username: this.email,
+        password: this.password,
+      };
+      try {
+        await this.$store.dispatch("auth/login", data);
+        this.presentToast("LoggedIn!", "success");
+        this.$router.replace("/projects");
+      } catch (err) {
+        this.presentToast(err.response.data.message, "warning");
+      }
       // this.$store
       //   .dispatch("auth/login", data)
       //   .then(() => {
