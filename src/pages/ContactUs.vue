@@ -1,11 +1,11 @@
 <template>
   <base-layout
-    page-title="Contact Us"
+    :page-title="singleCms.title"
     :add-padding="true"
     :hide-footer="true"
     page-back-link="/profile"
   >
-    <p>Address: Tel: +852 Email:</p>
+    <p>{{ singleCms.content }}</p>
   </base-layout>
 </template>
 
@@ -16,7 +16,7 @@ export default {
       return this.$store.getters["dashboard/cms"];
     },
     singleCms() {
-      return this.cms.find((item) => item.slug === "page-privacy-policy");
+      return this.cms.find((item) => item.slug === "page-contact-us");
     },
   },
 };

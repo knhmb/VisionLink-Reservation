@@ -5,7 +5,11 @@
   <slide>
     <swiper-slide v-for="item in projectDetail.thumbnail" :key="item">
       <div class="box">
-        <ion-img :src="item.filename"></ion-img>
+        <img
+          crossorigin="anonymous"
+          :src="`http://localhost:3001/api/v1/system/uploads/${item.filename}`"
+        />
+        <!-- <ion-img :src="item.filename"></ion-img> -->
       </div>
     </swiper-slide>
   </slide>
@@ -78,5 +82,10 @@ ion-img::part(image) {
 
 :deep(.swiper-wrapper) {
   gap: 8px;
+}
+
+.swiper .swiper-slide img {
+  width: 100%;
+  object-fit: cover;
 }
 </style>

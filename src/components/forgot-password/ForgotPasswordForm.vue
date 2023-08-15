@@ -127,25 +127,26 @@ export default {
         });
     },
     async submit() {
-      // const result = await this.v$.$validate();
-      // if (!result) {
-      //   return;
-      // }
-      // // perform async actions
-      // const data = {
-      //   email: this.email,
-      //   password: this.password,
-      //   password2: this.confirmPassword,
-      // };
-      // this.$store
-      //   .dispatch("auth/resetPassword", data)
-      //   .then(() => {
-      //     this.presentToast("Password Changed!", "success");
-      //     this.$router.replace("/login");
-      //   })
-      //   .catch((err) => {
-      //     this.presentToast(err.response.data.message, "warning");
-      //   });
+      const result = await this.v$.$validate();
+      if (!result) {
+        return;
+      }
+      // perform async actions
+      const data = {
+        email: this.email,
+        password: this.password,
+        password2: this.confirmPassword,
+        otp: this.otp,
+      };
+      this.$store
+        .dispatch("auth/resetPassword", data)
+        .then(() => {
+          this.presentToast("Password Changed!", "success");
+          this.$router.replace("/login");
+        })
+        .catch((err) => {
+          this.presentToast(err.response.data.message, "warning");
+        });
     },
     async presentToast(message, color) {
       const toast = await toastController.create({

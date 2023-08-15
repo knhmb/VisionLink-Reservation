@@ -14,7 +14,11 @@
         <slide v-if="status === 'Completed'">
           <swiper-slide v-for="img in item.thumbnail" :key="img.uid">
             <div class="box">
-              <ion-img :src="img.filename"></ion-img>
+              <img
+                crossorigin="anonymous"
+                :src="`http://localhost:3001/api/v1/system/uploads/${img.filename}`"
+              />
+              <!-- <ion-img :src="img.filename"></ion-img> -->
             </div>
           </swiper-slide>
         </slide>

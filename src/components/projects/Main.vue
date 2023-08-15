@@ -4,10 +4,16 @@
       <ion-row>
         <ion-col size="6" v-for="project in projects" :key="project.id">
           <ion-card :router-link="`/projects/${project.slug}`">
-            <ion-img
+            <img
+              crossorigin="anonymous"
               :alt="project.thumbnail[0].name"
               :src="`http://localhost:3001/api/v1/system/uploads/${project.thumbnail[0].filename}`"
             />
+            <!-- <ion-img
+              crossorigin="anonymous"
+              :alt="project.thumbnail[0].name"
+              :src="`http://localhost:3001/api/v1/system/uploads/${project.thumbnail[0].filename}`"
+            /> -->
             <ion-card-content>
               {{ project.title }}
             </ion-card-content>
@@ -68,6 +74,11 @@ ion-card-content {
   text-align: left;
   color: var(--ion-text-color-primary-contrast);
   padding: 0.5rem 0 !important;
+}
+img {
+  width: 100%;
+  object-fit: cover;
+  height: 8rem;
 }
 
 /* ion-img::part(image) {

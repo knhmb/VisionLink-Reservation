@@ -9,7 +9,12 @@
       :key="item.id"
       :router-link="`/rennovation-schedule/${item.slug}`"
     >
-      <ion-img :alt="item.name" :src="item.thumbnail[0].filename" />
+      <img
+        crossorigin="anonymous"
+        :alt="item.name"
+        :src="`http://localhost:3001/api/v1/system/uploads/${item.thumbnail[0].filename}`"
+      />
+      <!-- <ion-img :alt="item.name" :src="item.thumbnail[0].filename" /> -->
       <ion-card-content>
         {{ item.name }}
         <ion-img class="arrow-right" src="/assets/arrow-right.png"></ion-img>
@@ -67,5 +72,11 @@ ion-card-content {
 
 ion-img.arrow-right::part(image) {
   width: 0.7rem;
+}
+
+img {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
 }
 </style>

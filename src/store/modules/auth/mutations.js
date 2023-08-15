@@ -15,4 +15,7 @@ export default {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
   },
+  SET_USER(state, payload) {
+    state.userDetails = payload;
+  },
 };
