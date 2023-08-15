@@ -7,25 +7,25 @@
     <p>(Title) 香港某大樓2樓3室 - 裝修項目（一）</p>
     <div class="navs">
       <p
-        @click="$router.push('/rennovation-schedule-in-progress')"
+        @click="setStatus('In Progress')"
         :class="{
-          'is-selected': $route.path === '/rennovation-schedule-in-progress',
+          'is-selected': selectedStatus === 'In Progress',
         }"
       >
         In Progress
       </p>
       <p
-        @click="$router.push('/rennovation-schedule-pending')"
+        @click="setStatus('Pending')"
         :class="{
-          'is-selected': $route.path === '/rennovation-schedule-pending',
+          'is-selected': selectedStatus === 'Pending',
         }"
       >
         Pending
       </p>
       <p
-        @click="$router.push('/rennovation-schedule-completed')"
+        @click="setStatus('Completed')"
         :class="{
-          'is-selected': $route.path === '/rennovation-schedule-completed',
+          'is-selected': selectedStatus === 'Completed',
         }"
       >
         Completed
@@ -40,9 +40,35 @@
 import { IonImg, IonNav } from "@ionic/vue";
 
 export default {
+  emits: ["setNewStatus"],
   components: {
     IonImg,
     IonNav,
+  },
+  data() {
+    return {
+      selectedStatus: "In Progress",
+    };
+  },
+  watch: {
+    selectedStatus() {
+      this.getItems();
+    },
+  },
+  methods: {
+    setStatus(status) {
+      this.selectedStatus = status;
+      this.$emit("setNewStatus", this.selectedStatus);
+    },
+    getItems() {
+      this.$store.dispatch("dashboard/getRennovationCategories", {
+        slug: this.$route.params.slug,
+        status: this.selectedStatus,
+      });
+    },
+  },
+  created() {
+    this.getItems();
   },
 };
 </script>

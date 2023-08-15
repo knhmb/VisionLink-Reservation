@@ -149,33 +149,31 @@ export default {
         email: this.email,
         otp: this.otp,
       };
-      console.log(data);
-      try {
-        await this.$store.dispatch("auth/signUp", data);
-        this.$router.replace("/login");
-      } catch (err) {
-        this.presentToast(err, "warning");
-      }
-      // this.$store
-      //   .dispatch("auth/signup", data)
-      //   .then(() => {
-      //     this.$router.replace("/login");
-      //   })
-      //   .catch((err) => {
-      //     this.presentToast(err, "warning");
-      //   });
+      this.$store
+        .dispatch("auth/signUp", data)
+        .then(() => {
+          this.$router.replace("/login");
+        })
+        .catch((err) => {
+          this.presentToast(err.response.data.message, "warning");
+        });
     },
     async sendOtp() {
       const result = await this.v$.email.$validate();
       if (!result) {
         return;
       }
-      try {
-        await this.$store.dispatch("auth/newAccountOTP", { email: this.email });
-        this.presentToast("OTP has been sent to the provided email", "success");
-      } catch (err) {
-        this.presentToast(err, "warning");
-      }
+      this.$store
+        .dispatch("auth/newAccountOTP", { email: this.email })
+        .then(() => {
+          this.presentToast(
+            "OTP has been sent to the provided email",
+            "success"
+          );
+        })
+        .catch((err) => {
+          this.presentToast(err.response.data.message, "warning");
+        });
     },
     async presentToast(message, color) {
       const toast = await toastController.create({

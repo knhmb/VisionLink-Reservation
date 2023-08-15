@@ -4,11 +4,14 @@
     :hide-back-button="true"
     :add-padding="true"
   >
-    <ion-card router-link="/rennovation-schedule-in-progress">
-      <ion-img alt="Silhouette of mountains" src="/assets/image-2.png" />
+    <ion-card
+      v-for="item in rennovationGroups"
+      :key="item.id"
+      :router-link="`/rennovation-schedule/${item.slug}`"
+    >
+      <ion-img :alt="item.name" :src="item.thumbnail[0].filename" />
       <ion-card-content>
-        (Title) 精美裝修設計項目 – 香港某地區綜合裝修方案,
-        為您的生活創造獨特的美感...
+        {{ item.name }}
         <ion-img class="arrow-right" src="/assets/arrow-right.png"></ion-img>
       </ion-card-content>
     </ion-card>
@@ -23,6 +26,14 @@ export default {
     IonCard,
     IonCardContent,
     IonImg,
+  },
+  computed: {
+    rennovationGroups() {
+      return this.$store.getters["dashboard/rennovationGroups"];
+    },
+  },
+  created() {
+    this.$store.dispatch("dashboard/getRennovationGroups");
   },
 };
 </script>
@@ -49,6 +60,7 @@ ion-card-content {
   color: var(--ion-text-color-primary-contrast);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding-left: 0 !important;
   padding-right: 0 !important;
 }

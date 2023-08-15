@@ -1,12 +1,12 @@
 <template>
   <base-layout
-    page-title="Projects Detail"
-    page-back-link="/login"
+    :page-title="projectDetails.title"
+    page-back-link="/projects"
     :hide-footer="true"
   >
     <ion-img src="/assets/Banner.png"></ion-img>
     <div class="projects-content">
-      <Main />
+      <Main :project-detail="projectDetails" />
     </div>
   </base-layout>
 </template>
@@ -21,20 +21,17 @@ export default {
     Main,
   },
   computed: {
-    newsDetail() {
-      return this.$store.getters["dashboard/newsDetail"];
-    },
-    blobImage() {
-      return this.$store.getters["dashboard/blobImage"];
+    projectDetails() {
+      return this.$store.getters["dashboard/projectDetails"];
     },
   },
   created() {
     this.$store
-      .dispatch("dashboard/getNewsDetail", this.$route.params.id)
+      .dispatch("dashboard/getProjectDetail", this.$route.params.id)
       .then(() => {
         this.$store.dispatch(
           "dashboard/getImageBlob",
-          this.newsDetail.thumbnail
+          this.projectDetails.thumbnail[0].filename
         );
       });
   },

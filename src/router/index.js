@@ -63,6 +63,19 @@ const routes = [
     // },
   },
   {
+    path: "/rennovation-schedule/:slug",
+    name: "RennovationScheduleDetail",
+    component: () => import("../pages/RennovationScheduleDetail.vue"),
+    // beforeEnter(to, from, next) {
+    //   const isAuthenticated = localStorage.getItem("accessToken");
+    //   if (isAuthenticated) {
+    //     next();
+    //     return;
+    //   }
+    //   next("/");
+    // },
+  },
+  {
     path: "/rennovation-schedule-in-progress",
     name: "RennovationInProgress",
     component: () => import("../pages/RennovationScheduleInProgress.vue"),

@@ -2,12 +2,14 @@
   <section class="card-content">
     <ion-grid>
       <ion-row>
-        <ion-col size="6" v-for="item in 6" :key="item">
-          <ion-card router-link="/projects/1">
-            <ion-img alt="Silhouette of mountains" src="/assets/img.png" />
+        <ion-col size="6" v-for="project in projects" :key="project.id">
+          <ion-card :router-link="`/projects/${project.slug}`">
+            <ion-img
+              :alt="project.thumbnail[0].name"
+              :src="`http://localhost:3001/api/v1/system/uploads/${project.thumbnail[0].filename}`"
+            />
             <ion-card-content>
-              (Title) 精美裝修設計項目 – 香港某地區綜合裝修方案,
-              為您的生活創造獨特的美感...
+              {{ project.title }}
             </ion-card-content>
           </ion-card>
         </ion-col>
@@ -27,6 +29,7 @@ import {
 } from "@ionic/vue";
 
 export default {
+  props: ["projects"],
   components: {
     IonGrid,
     IonRow,
@@ -34,6 +37,11 @@ export default {
     IonCard,
     IonCardContent,
     IonImg,
+  },
+  computed: {
+    protocol() {
+      return window.location.origin;
+    },
   },
 };
 </script>

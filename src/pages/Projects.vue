@@ -10,27 +10,7 @@
         </div>
       </div>
     </div>
-    <Main />
-    <!-- <template v-if="news.length > 0">
-      <ion-card
-        v-for="item in news"
-        :key="item.id"
-        :router-link="`/news/${item.slug}`"
-      >
-
-        <ion-card-content>
-          <ion-img
-            @load="getBlobImage(item.thumbnail)"
-            :src="`/api/v1/system/uploads/${item.thumbnail}`"
-            :alt="item.title"
-          ></ion-img>
-          <div class="content">
-            <p>{{ item.title }}</p>
-            <ion-icon size="large" :icon="chevronForwardOutline"></ion-icon>
-          </div>
-        </ion-card-content>
-      </ion-card>
-    </template> -->
+    <Main :projects="projects" />
   </base-layout>
 </template>
 
@@ -64,22 +44,13 @@ export default {
     };
   },
   computed: {
-    // news() {
-    //   return this.$store.getters["dashboard/news"];
-    // },
+    projects() {
+      return this.$store.getters["dashboard/projects"];
+    },
   },
-  // methods: {
-  //   async getBlobImage(img) {
-  //     console.log("loaded");
-  //     const response = await axios.get(`api/v1/system/uploads/${img}`, {
-  //       responseType: "blob",
-  //     });
-  //     const url = URL.createObjectURL(response.data);
-  //     this.blobImgs.push(url);
-  //   },
-  // },
   created() {
-    // this.$store.dispatch("dashboard/getNews");
+    console.log(window);
+    this.$store.dispatch("dashboard/getProjects");
   },
 };
 </script>

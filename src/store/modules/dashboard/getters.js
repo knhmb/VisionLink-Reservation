@@ -1,26 +1,20 @@
 export default {
-  news(state) {
-    return state.news;
+  projects(state) {
+    return state.projects;
   },
   blobImage(state) {
     return state.blobImage;
   },
-  newsDetail(state) {
-    return state.newsDetail;
+  projectDetails(state) {
+    return state.projectDetails;
   },
-  courseCategories(state) {
-    return state.courseCategories;
+  rennovationGroups(state) {
+    return state.rennovationGroups;
   },
-  courses(state) {
-    return state.courses;
-  },
-  courseDetail(state) {
-    return state.courseDetail;
+  rennovationCategories(state) {
+    return state.rennovationCategories;
   },
   cms(state) {
     return state.cms;
-  },
-  reservations(state) {
-    return state.reservations;
   },
 };

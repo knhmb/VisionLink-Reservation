@@ -1,10 +1,11 @@
 <template>
   <swiper :slides-per-view="3.5">
-    <swiper-slide v-for="item in 6" :key="item">
+    <slot />
+    <!-- <swiper-slide v-for="item in thumbnail" :key="item">
       <div class="box">
         <slot />
       </div>
-    </swiper-slide>
+    </swiper-slide> -->
   </swiper>
 </template>
   

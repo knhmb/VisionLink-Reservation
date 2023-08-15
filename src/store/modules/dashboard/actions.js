@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export default {
-  async getNews(context) {
-    const response = await axios.get("api/v1/news");
-    context.commit("SET_NEWS", response.data.items);
+  async getProjects(context) {
+    const response = await axios.get("/api/v1/project");
+    context.commit("SET_PROJECTS", response.data.items);
   },
   async getImageBlob(context, payload) {
     const response = await axios.get(`/api/v1/system/uploads/${payload}`, {
@@ -12,31 +12,24 @@ export default {
     const url = URL.createObjectURL(response.data);
     context.commit("SET_BLOB_IMAGE", url);
   },
-  async getNewsDetail(context, payload) {
-    const response = await axios.get(`api/v1/news/${payload}`);
-    context.commit("SET_NEWS_DETAIL", response.data.item);
+  async getProjectDetail(context, payload) {
+    const response = await axios.get(`api/v1/project/${payload}`);
+    context.commit("SET_PROJECT_DETAIL", response.data.item);
   },
-  async getCourseCategory(context) {
-    const response = await axios.get("api/v1/course/category");
-    context.commit("SET_COURSE_CATEGORY", response.data.items);
+  async getRennovationGroups(context) {
+    const response = await axios.get("api/v1/renovation/groups");
+    context.commit("SET_RENNOVATION_GROUPS", response.data.items);
   },
-  async getCourses(context) {
-    const response = await axios.get("api/v1/course/management");
-    context.commit("SET_COURSES", response.data.items);
-  },
-  async getCourseDetail(context, payload) {
-    const response = await axios.get(`api/v1/course/management/${payload}`);
-    context.commit("SET_COURSE_DETAIL", response.data.item);
-  },
-  async reservation(_, payload) {
-    await axios.post("api/v1/reservation", payload);
+  async getRennovationCategories(context, payload) {
+    const response = await axios.get("api/v1/renovation/categories", {
+      params: {
+        filter: `group:${payload.slug},status:${payload.status}`,
+      },
+    });
+    context.commit("SET_RENNOVATION_CATEGORIES", response.data.items);
   },
   async getCms(context) {
     const response = await axios.get("api/v1/cms/contents");
     context.commit("SET_CMS", response.data.items);
-  },
-  async getReservations(context) {
-    const response = await axios.get("api/v1/reservation");
-    context.commit("SET_RESERVATIONS", response.data.items);
   },
 };
